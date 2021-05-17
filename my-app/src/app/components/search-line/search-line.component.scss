@@ -1,0 +1,22 @@
+.search-line {
+    &-input {
+        padding: 10px;
+        width: 30vw;
+        height: 45px;
+        // border: 1px solid #00a0e4;
+        border: 0;
+        outline: none;
+        color: #00a0e4;
+    }
+    &-img {
+        position: relative;
+        width: 18px;
+        height: 18px;
+        right: 30px;
+        bottom: 2px;
+    }
+}
+
+::placeholder {
+    color: #000000;
+}

@@ -1,0 +1,50 @@
+.auth-page {
+    width: 300px;
+    margin: 6vw auto;
+    &-header {
+        text-align: center;
+    }
+    &-body {
+        h2 {
+            font-weight: 100;
+            text-align: center;
+        }
+        margin-top: 30px;
+        &-login, &-password,&-name {
+            input {
+                border: 1px solid #000;
+                margin-bottom: 15px;
+            }
+            input:focus {
+                border: 1px solid #00a0ff;
+            }
+        }
+        &-error {
+            color: #ff0000;
+            margin: 0 0 10px;
+        }
+    }
+    &-footer {
+        margin-top: 35px;
+        &-register {
+            text-align: center;
+        }
+    }
+}
+button, input {
+    width: 100%;
+    height: 35px;
+    outline: none;
+    border: 0;
+}
+p {
+    margin: 0;
+}
+button {
+    background-color:  #00a0ff;
+    color: #fff;
+}
+a {
+    color:  #a0a0a0;
+    text-decoration: none;
+}

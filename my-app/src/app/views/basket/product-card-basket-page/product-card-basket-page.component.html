@@ -1,0 +1,20 @@
+<div class="product-card-basket">
+    <div class="product-card-basket-img">
+        <img src="../../../../assets/1_46.jpg">
+    </div>
+    <div class="product-card-basket-info">
+        <div class="product-card-basket-info-header">
+            <span>{{response.name}}</span>
+        </div>
+        <div class="product-card-basket-info-footer">
+            <div class="product-card-basket-info-footer-quantity">
+                <img src="../../../../assets/plus.png" (click)="changeQuantity('ADD')">
+                <span>{{quantity}}</span>
+                <img src="../../../../assets/minus.png" (click)="changeQuantity('REMOVE')">
+            </div>
+            <div class="product-card-basket-info-footer-price">
+                <span>{{total}} &#8381;</span>
+            </div>
+        </div>
+    </div>
+</div>

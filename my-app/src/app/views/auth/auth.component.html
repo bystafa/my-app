@@ -1,0 +1,28 @@
+<form class="auth-page" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="auth-page-header">
+        <img src="../../../assets/logo.png">
+    </div>
+    <div class="auth-page-body">
+        <div class="auth-page-body-login">
+            <p>E-mail</p>
+            <input type="text" formControlName="email" [style.borderBottom]="form.get('email').invalid && form.get('email').touched ? '1px solid #ff0000' : '0'">
+        </div>
+        <div class="auth-page-body-error" *ngIf="form.get('email').invalid && form.get('email').touched">
+            <span *ngIf="form.get('email').errors['required']">Поле email не должно быть пустым.</span>
+            <span *ngIf="form.get('email').errors['email']">Введите корректный email.</span>
+        </div>
+        <div class="auth-page-body-password">
+            <p>Пароль</p>
+            <input type="password" formControlName="password" [style.borderBottom]="form.get('password').invalid && form.get('password').touched ? '1px solid #ff0000' : '0'">
+        </div>
+        <div class="auth-page-body-error" *ngIf="form.get('password').invalid && form.get('password').touched">
+            <span *ngIf="form.get('password').errors['required']">Поле пароль не должно быть пустым.</span>
+            <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">Минимальное количество символов в пароле - 6.</span>
+        </div>
+    </div>
+    <div class="auth-page-footer">
+        <div class="auth-page-footer-submit">
+            <button type="submit" [disabled]="form.invalid || form.disabled">Войти</button>
+        </div>
+    </div>
+</form>

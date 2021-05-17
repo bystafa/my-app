@@ -1,0 +1,50 @@
+.product-card-basket {
+    display: flex;
+    flex-direction: row;
+    &-img {
+        width: 20%;
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    &-info {
+        width: 80%;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &-header {
+            span {
+                color: #fff;
+            }
+        }
+        &-footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            &-quantity {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 24px;
+                    height: 24px;
+                    margin: 7px;
+                    cursor: pointer;
+                }
+                span {
+                    font-size: 20px;
+                    color: #fff;
+                }
+            }
+            &-price {
+                span {
+                    font-size: 23px;
+                    font-weight: 700;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

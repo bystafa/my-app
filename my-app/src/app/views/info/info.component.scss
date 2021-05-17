@@ -1,0 +1,21 @@
+.info-page {
+    padding: 3vw 23vw;
+    &-body {
+        text-align: justify;
+    }
+    &-footer {
+        &-patent {
+            text-align: center;
+            &-div {
+                display: inline-block;
+                vertical-align:top;
+                width: 150px;
+                margin: 15px;
+            }
+            img {
+                width: 100px;
+                height: 140px;
+            }
+        }
+    }
+}

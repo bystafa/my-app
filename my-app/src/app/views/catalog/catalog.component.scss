@@ -1,0 +1,42 @@
+.catalog-page {
+    margin: 3vw 23vw;
+    &-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &-title {
+            font-size: 25px;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        &-quantity {
+            color: #a0a0a0;
+        }
+        button {
+            border: 0;
+            outline: none;
+            background-color: #00a0ff;
+            padding: 5px 25px;
+            border: 1px;
+            border-radius: 5px;
+            color: #fff;
+            height: 100%;
+        }
+    }
+    &-body {
+        &-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+::ng-deep mat-dialog-container {
+    background-color: #fff !important;
+}
+
+::ng-deep .mat-dialog-container {
+    background-color: #fff !important;
+}

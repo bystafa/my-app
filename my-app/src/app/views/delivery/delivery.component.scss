@@ -1,0 +1,47 @@
+.delivery-page {
+    padding: 3vw 10vw;
+    &-body {
+        &-delivery,&-payment {
+            &-title {
+                text-align: center;
+                h1 {
+                    margin-bottom: 50px;
+                    font-weight: 100;
+                }
+            }
+            &-body {
+                display: flex;
+                flex-direction: row;
+                text-align: justify;
+                &-column {
+                    width: 33%;
+                    margin: 10px 15px;
+                }
+                h4 {
+                    text-align: center;
+                    margin-bottom: 40px;
+                }
+                &-img {
+                    &-money {
+                        width: 70%;
+                    }
+                    &-operators {
+                        width: 30%;
+                    }
+                }
+            }
+        }
+        &-payment {
+            h1 {
+                margin-top: 80px;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+.vert-hr {
+    border-left: 1px solid #000;
+    width: 5px;
+}

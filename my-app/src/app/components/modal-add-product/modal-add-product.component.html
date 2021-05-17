@@ -1,0 +1,66 @@
+<mat-dialog-content>
+    <div class="add-product">
+        <div class="add-product-exit">
+        <img src="../../../assets/cancel.png" (click)="closeModal()">
+        </div>
+        <form class="add-product-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="add-product-form-header">
+            <img src="../../../assets/logo.png">
+        </div>
+        <div class="add-product-form-body">
+            <div class="add-product-form-body-name">
+                <p>Название</p>
+                <input type="text" formControlName="name" [style.borderBottom]="form.get('name').invalid && form.get('name').touched ? '1px solid #ff0000' : '0'">
+            </div>
+            <div class="add-product-form-body-error" *ngIf="form.get('name').invalid && form.get('name').touched">
+                <span *ngIf="form.get('name').errors['required']">Поле "Название" не должно быть пустым.</span>
+            </div>
+            <div class="add-product-form-body-quantity">
+                <p>Количество</p>
+                <input type="text" formControlName="quantity" [style.borderBottom]="form.get('quantity').invalid && form.get('quantity').touched ? '1px solid #ff0000' : '0'">
+            </div>
+            <div class="add-product-form-body-error" *ngIf="form.get('quantity').invalid && form.get('quantity').touched">
+                <span *ngIf="form.get('quantity').errors['required']">Поле "Количество" не должно быть пустым.</span>
+                <span *ngIf="form.get('quantity').errors['numberValidator'] && !form.get('quantity').errors['required']">Поле "Количество" должно содержать только цифры.</span>
+            </div>
+            <div class="add-product-form-body-price">
+                <p>Цена</p>
+                <input type="text" formControlName="price" [style.borderBottom]="form.get('price').invalid && form.get('price').touched ? '1px solid #ff0000' : '0'">
+            </div>
+            <div class="add-product-form-body-error" *ngIf="form.get('price').invalid && form.get('price').touched">
+                <span *ngIf="form.get('price').errors['required']">Поле "Цена" не должно быть пустым.</span>
+                <span *ngIf="form.get('price').errors['numberValidator'] && !form.get('price').errors['required']">Поле "Цена" должно содержать только цифры.</span>
+            </div>
+            <div class="add-product-form-body-category" style="margin-bottom: 15px;">
+                <p>Категория</p>
+                <!-- <input type="text" formControlName="category" [style.borderBottom]="form.get('category').invalid && form.get('category').touched ? '1px solid #ff0000' : '0'"> -->
+                <mat-select formControlName="category">
+                    <mat-option *ngFor="let item of categories" [value]="item.value">
+                    {{item.text}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <div class="add-product-form-body-error" *ngIf="form.get('category').invalid && form.get('category').touched">
+                <span *ngIf="form.get('category').errors['required']">Поле "Категория" не должно быть пустым.</span>
+            </div>
+            <div class="add-product-form-body-photo">
+                    <p>Фотография</p>
+                    <input type="file" id="file" accept="image/jpeg, image/png" (change)="onFileSelected(fileInput.files)" #fileInput>
+                    <label for="file">
+                        <div class="file-input-div">
+                            <img src="../../../assets/camera.png">
+                            <span>Приложить Фотографию</span>
+                        </div>
+                    </label>
+                    <img [src]="src">
+                </div>
+        </div>
+        <hr>
+        <div class="add-product-form-footer">
+            <div class="add-product-form-footer-submit">
+                <button type="submit" [disabled]="form.invalid || form.disabled">Добавить товар</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</mat-dialog-content>

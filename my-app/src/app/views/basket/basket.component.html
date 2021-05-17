@@ -1,0 +1,48 @@
+<div class="basket-page">
+    <div class="basket-page-header">
+        <div class="basket-page-header-title">
+            <h2>Моя корзина ({{products.length}})</h2>
+        </div>
+    </div>
+    <hr>
+    <div class="basket-page-body">
+        <div class="basket-page-body-wrapper">
+            <div class="basket-page-body-products" *ngFor="let item of products; let i = index">
+                <div class="basket-page-body-products-number">
+                    <span>{{i+1}}.</span>
+                </div>
+                <div class="basket-page-body-products-product">
+                    <app-product-card-basket-page [response]="item" [quantity]="quantity[i]" style="width: 100%" (price)="price[i] = $event; calcTotalPrice()"></app-product-card-basket-page>
+                </div>
+            </div>
+            <div class="basket-page-body-products">
+                <span>Корзина пуста</span>
+            </div>
+        </div>
+        <div class="basket-page-body-order">
+            <div class="basket-page-body-order-title">
+                <h4>Оформление заказа</h4>
+            </div>
+            <p>Введите контактную информацию:</p>
+            <div class="basket-page-body-order-place">
+                <input placeholder="Адрес" [(ngModel)]="address">
+            </div>
+            <div class="basket-page-body-order-index">
+                <input placeholder="Индекс" [(ngModel)]="index">
+            </div>
+            <div class="basket-page-body-order-phone">
+                <input placeholder="Номер телефона" [(ngModel)]="phone">
+            </div>
+            <div class="basket-page-body-order-button">
+                <button (click)="createOrder()">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="basket-page-footer">
+        <div class="basket-page-footer-info">
+            <span class="basket-page-footer-info-sum">Итого:</span>
+            <span class="basket-page-footer-info-price">{{totalPrice}} &#8381;</span>
+        </div>
+    </div>
+</div>

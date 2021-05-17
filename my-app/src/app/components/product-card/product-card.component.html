@@ -1,0 +1,29 @@
+<div class="product-card">
+    <div class="product-card-img">
+        <img [src]="response.imageSrc">
+    </div>
+    <div class="product-card-title">
+        <span>{{response.name}}</span>
+    </div>
+    <div class="product-card-price">
+        <div class="product-card-price-number">
+            <span>{{response.price}} &#8381;</span>
+        </div>
+        <div class="product-card-price-quantity">
+            <img src="../../../assets/plus.png" (click)="quantity = (quantity < response.quantity) ? quantity + 1 :  quantity">
+            <span>{{quantity}}</span>
+            <img src="../../../assets/minus.png" (click)="quantity = (quantity > 1) ? quantity - 1 :  1">
+        </div>
+    </div>
+    <div class="product-card-buy">
+        <button class="product-card-buy-button" (click)="gotoBasket()">
+            <span *ngIf="!bought">Купить</span>
+            <span *ngIf="bought">В корзине</span>
+            <img class="product-card-buy-button-img" src="../../../assets/shopping-cart.png">
+        </button>
+        <div class="product-card-buy-like" (click)="like()">
+            <img src="../../../assets/heart.png" *ngIf="!liked">
+            <img src="../../../assets/like.png" *ngIf="liked">
+        </div>
+    </div>
+</div>

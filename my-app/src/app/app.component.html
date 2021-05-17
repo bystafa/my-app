@@ -1,0 +1,19 @@
+<div class="app-container">
+    <div class="app-container-navbar">
+        <app-navbar (catalogDisplay)="catalogDisplayEvent($event)" (basketDisplay)="basketDisplayEvent($event)"></app-navbar>
+    </div>
+    <div class="app-container-catalog" *ngIf="catalogDisplay" [style.top]="catalogDisplay ? '0' : '-100%'">
+        <div style="height: 5px;"></div>
+        <app-catalog (catalogShow)="catalogDisplay = $event"></app-catalog>
+    </div>
+    <div class="app-container-catalog" *ngIf="basketDisplay" [style.top]="basketDisplay ? '0' : '-100%'">
+        <div style="height: 5px;"></div>
+        <app-basket (showBasket)="basketDisplay = $event"></app-basket>
+    </div>
+    <div class="app-container-router">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="app-container-footer">
+        <app-footer></app-footer>
+    </div>
+</div>

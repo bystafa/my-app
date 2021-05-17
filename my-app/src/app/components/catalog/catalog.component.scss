@@ -1,0 +1,42 @@
+.catalog-main {
+    background-color: #00a0ff;
+    display: flex;
+    justify-content: center;
+    padding: 5vw 0;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    // top: -100%;
+    // transition: linear 10s;
+    a {
+        text-decoration: none;
+        color: #fff;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    a:hover {
+        color: #a0a0a0;
+    }
+    &-list {
+        display: flex;
+        flex-direction: row;
+        &-column {
+            margin-right: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        &-lv {
+            margin: 0 20px;
+            border-left: 6px solid #fff;
+            height: 100%;
+        }
+        &-logo {
+            &-text {
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 30px;
+                color: #fff;
+            }
+        }
+    }
+}

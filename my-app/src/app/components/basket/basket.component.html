@@ -1,0 +1,29 @@
+<div class="basket-main">
+    <div class="basket-main-title">
+        <h2>Моя корзина ({{length}})</h2>
+    </div>
+    <div class="basket-main-wrapper">
+        <div class="basket-main-list" *ngIf="!loader">
+            <div class="basket-main-list-product" *ngFor="let item of products.slice(0,3); let i = index">
+                <div class="basket-main-list-product-number"><span>{{i + 1}}.</span></div>
+                <app-product-card-basket [response]="item" [quantity]="quantity[i]" style="width: 100%" (price)="price[i] = $event; calcTotalPrice()"></app-product-card-basket>
+            </div >
+            <div class="basket-main-list-product" *ngIf="products.length === 0">
+                <span>Корзина пуста</span>
+            </div>
+            <div class="basket-main-list-other" *ngIf="products.length > 3">
+                <img src="../../../assets/ellipsis.png">
+            </div>
+        </div>
+        <div class="basket-main-loader" *ngIf="loader">
+            <app-loader></app-loader>
+        </div>
+        <div class="basket-main-ref">
+            <button [routerLink]="['basket']" (click)="showBasketEmit(false)">Перейти в корзину</button>
+            <div class="basket-main-ref-sum">
+                <span class="basket-main-ref-sum">Итого:</span>
+                <span class="basket-main-ref-sum-money">{{totalPrice}} &#8381;</span>
+            </div>
+        </div>
+    </div>
+</div>

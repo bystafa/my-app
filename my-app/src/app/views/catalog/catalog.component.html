@@ -1,0 +1,21 @@
+<div class="catalog-page">
+    <div class="catalog-page-header">
+        <div>
+            <span class="catalog-page-header-title">{{title}}</span>
+            (<span class="catalog-page-header-quantity">{{quantity}}</span>)
+        </div>
+        <div *ngIf="userType === 'admin'">
+            <button (click)="openModal()"><span>&#43;</span> Добавить</button>
+        </div>
+    </div>
+    <hr>
+    <div class="catalog-page-body">
+        <div class="catalog-page-body-list" *ngFor="let row of subarr; let i = index">
+            <div class="catalog-page-body-list-product" *ngFor="let item of subarr[i]">
+                <app-product-card [response]="item"></app-product-card>
+            </div>
+            <div *ngIf="subarr[i].length === 2" style="width: 15vw"></div>
+        </div>
+    </div>
+    <div class="catalog-page-footer"></div>
+</div>

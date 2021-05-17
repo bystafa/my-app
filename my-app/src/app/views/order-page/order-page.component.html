@@ -1,0 +1,33 @@
+<div class="order-page" *ngIf="!loader">
+    <div class="order-page-header">
+        <h2>Ваши заказы({{length}})</h2>
+    </div>
+    <hr>
+    <div class="order-page-body-main" *ngIf="length > 0">
+        <div class="order-page-body" *ngFor="let item of data">
+            <div class="order-page-body-number">
+                <span>#{{item.order}}</span>
+            </div>
+            <div>
+                <div *ngFor="let product of item.products" class="order-page-row">
+                    <div class="order-page-body-products">
+                        <div class="order-page-body-products-img">
+                            <img [src]="product.imageSrc">
+                        </div>
+                        <div class="order-page-body-products-info">
+                            <div class="order-page-body-products-info-name">
+                                <span>{{product.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-page-body-price">
+                        <span>{{product.price}} &#8381;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="order-page-body" *ngIf="length === 0">
+        Вы еще ничего не заказали
+    </div>
+</div>

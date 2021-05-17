@@ -1,0 +1,15 @@
+<div class="main-page">
+    <div class="main-page-video">
+        <video src="../../../assets/video.mp4" autoplay muted loop></video>
+    </div>
+    <div class="main-page-recommended-product" *ngIf="products.length > 0 ">
+        <h3>Понравившиеся вам</h3>
+        <div class="main-page-recommended-product-list">
+            <div class="main-page-recommended-product-list-card">
+                <div *ngFor="let card of products" style="margin: 10px;">
+                    <app-product-card [response]="card"></app-product-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

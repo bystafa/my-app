@@ -1,0 +1,35 @@
+.footer {
+    padding: 3vw 23vw;
+    background-color: #00a0ff;
+    display: flex;
+    flex: row;
+    justify-content: space-between;
+    &-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        a,span {
+            color: #fff;
+            outline: none;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+        &-href {
+            display: flex;
+            flex-direction: column;
+        }
+        &-contacts {
+            &-phone, &-mail {
+                justify-content: flex-end;
+                margin-bottom: 10px;
+                img {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+    &-map {
+        width: 30vw;
+        height: 20vw;
+    }
+}

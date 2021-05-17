@@ -1,0 +1,31 @@
+.order-page {
+    padding: 3vw 23vw;
+    &-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        &-number {
+            span {
+                font-size: 24px;
+                font-weight: 650;
+            }
+        }
+        &-products {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 10px;
+            &-img {
+                img {
+                    height: 100px;
+                    width: 100px;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+    &-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
