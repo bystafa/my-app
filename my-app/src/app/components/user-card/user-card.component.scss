@@ -1,0 +1,23 @@
+.user-card {
+    margin: 3vh 3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    strong {
+        font-weight: 500;
+    }
+    &-img {
+        img {
+            height: 400px;
+            width: 300px;
+        }
+    }
+    &-info {
+        &-name, &-mail, &-phone, &-city {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    }
+}

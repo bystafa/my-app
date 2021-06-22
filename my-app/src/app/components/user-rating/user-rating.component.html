@@ -1,0 +1,16 @@
+<div class="user-rating" *ngIf="data.length">
+    <div class="user-rating-card" (click)="goToProductPage()" *ngFor="let item of data">
+        <div class="user-rating-card-info">
+            <div class="user-rating-card-info-img">
+                <img [src]="item.imageSrc">
+            </div>
+            <div class="user-rating-card-info-name">
+                <span>{{item.name}}</span>
+            </div>
+        </div>
+        <app-rating [disabled]="true" [(rating)]="item.rating"></app-rating>
+    </div>
+</div>
+<div class="user-rating-card" *ngIf="!data.length">
+    <span>Оценок нет.</span>
+</div>

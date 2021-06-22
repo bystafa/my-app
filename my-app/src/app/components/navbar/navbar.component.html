@@ -1,11 +1,12 @@
 <div class="navbar">
     <div class="row between">
         <div class="navbar-icon" [routerLink]="['/']">
-            <img src="../../../assets/antex2_1.png">
+            <!-- <img src="../../../assets/antex2_1.png"> -->
+            <span>АНТЕКСЪ</span>
         </div>
-        <!-- <div class="navbar-search-line">
+        <div class="navbar-search-line" *ngIf="showSearchLine">
             <app-search-line></app-search-line>
-        </div> -->
+        </div>
         <div class="row">
             <div class="navbar-button" (click)="catalogDisplayEvent()">
                 <button class="navbar-button">Каталог</button>
@@ -13,9 +14,9 @@
                 <img src="../../../assets/menu.png" class="navbar-button-catalog">
                 <!-- <img src="../../../assets/cancel.png" *ngIf="showCatalog" class="navbar-button-exit"> -->
             </div>
-            <div class="navbar-user" [routerLink]="['auth']">
+            <div class="navbar-user" (click)="link()">
                 <img src="../../../assets/user-profile.png">
-                <p>Пользователь</p>
+                <p>{{message}}</p>
             </div>
             <div class="navbar-basket" (click)="basketDisplayEvent()">
                 <img src="../../../assets/shopping-cart.png">

@@ -29,6 +29,22 @@ const userSchema = new Schema({
     userType: {
         type: String,
         required: true
+    }, 
+    rating: [
+        {
+            id: Number,
+            rating: Number
+        }
+    ],
+    city: {
+        type: String
+    },
+    phone: {
+        type: String
+    },
+    imageSrc: {
+        type: String,
+        default: ''
     }
 })
 

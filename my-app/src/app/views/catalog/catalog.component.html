@@ -4,11 +4,27 @@
             <span class="catalog-page-header-title">{{title}}</span>
             (<span class="catalog-page-header-quantity">{{quantity}}</span>)
         </div>
-        <div *ngIf="userType === 'admin'">
-            <button (click)="openModal()"><span>&#43;</span> Добавить</button>
+        <div>
+            <button (click)="openModal()" *ngIf="userType === 'admin'"><span>&#43;</span> Добавить</button>
+            <img src="../../../assets/levels.png" (click)="openFilter()">
         </div>
     </div>
     <hr>
+    <div class="catalog-page-filter" *ngIf="showFilter">
+        <div class="catalog-page-filter-name">
+            <span>Название:</span>
+            <div>
+                <input [(ngModel)]="name" placeholder="Введите название" (ngModelChange)="filter()">
+            </div>
+        </div>
+        <div class="catalog-page-filter-price">
+            <span>Цена:</span>
+            <div>
+                <input [(ngModel)]="bottomLine" (ngModelChange)="filter()">
+                <input class="catalog-page-filter-price-right" [(ngModel)]="topLine" (ngModelChange)="filter()">
+            </div>
+        </div>
+    </div>
     <div class="catalog-page-body">
         <div class="catalog-page-body-list" *ngFor="let row of subarr; let i = index">
             <div class="catalog-page-body-list-product" *ngFor="let item of subarr[i]">

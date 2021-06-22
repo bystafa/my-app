@@ -1,4 +1,24 @@
-<div class="search-line">
-    <input class="search-line-input" [placeholder]="placeholder">
-    <img src="../../../assets/loupe.png" class="search-line-img">
+<div>
+    <div class="search-line">
+        <input class="search-line-input" [placeholder]="placeholder" [(ngModel)]="searchLine" (ngModelChange)="fetchResults()">
+        <img src="../../../assets/loupe.png" class="search-line-img">
+    </div>
+    <div class="search-results" *ngIf="searchData.length && !loader">
+        <div *ngFor="let item of searchData" (click)="link(item.id)">
+            <hr>
+            <div class="search-results-card">
+                <div class="search-results-card-info">
+                    <div class="search-results-card-info-img">
+                        <img [src]="item.imageSrc">
+                    </div>
+                    <div class="search-results-card-info-name">
+                        <span>{{item.name}}</span>
+                    </div>
+                </div>
+                <div class="search-results-card-price">
+                    {{item.price}} &#8381;
+                </div>
+            </div>
+        </div>
+    </div>    
 </div>

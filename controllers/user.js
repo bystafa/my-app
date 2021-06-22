@@ -79,7 +79,6 @@ module.exports.deleteAll = async function(req,res) {
 }
 
 module.exports.like = async function(req,res) {
-    console.log('like')
     const currentUser = await User.findOne({_id: req.user.id})
     if (currentUser.likedProducts.find((elem) => elem.id === req.body.likedProducts[0].id)) {
         //если есть лайк
@@ -98,6 +97,33 @@ module.exports.like = async function(req,res) {
             {new: true}
         )
         res.status(200).json(product)
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}
+
+module.exports.changeRating = async function(req, res) {
+    try {
+        const currentUser = await User.findOne({_id: req.user.id})
+        if (currentUser.rating) {
+            let index = currentUser.rating.findIndex(el => el.id == req.body.id)
+            if (index !== -1) {
+                //если есть уже такой рейтинг
+                currentUser.rating[index].rating = req.body.rating
+            } else {
+                //если нет
+                currentUser.rating.push({
+                    id: req.body.id,
+                    rating: req.body.rating
+                })
+            }
+        }
+        const update = await User.updateOne(
+            {_id: req.user.id},
+            {$set: currentUser},
+            {new: true}
+        )
+        res.status(200).json(update)
     } catch (e) {
         errorHandler(res, e)
     }

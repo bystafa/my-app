@@ -31,4 +31,8 @@ export class UserService {
   getUserOrderById() {
     return this.http.get('/api/order')
   }
+
+  changeRating(data) {
+    return this.http.post('/api/user/changeRating', data)
+  }
 }

@@ -35,6 +35,12 @@ import { LoaderComponent } from './components/loader/loader.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import { OrderPageComponent } from './views/order-page/order-page.component';
+import { ProductPageComponent } from './views/product-page/product-page.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { PersonalAreaComponent } from './views/personal-area/personal-area.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { UserRatingComponent } from './components/user-rating/user-rating.component';
 
 const appRoutes: Routes = [
   {
@@ -63,6 +69,12 @@ const appRoutes: Routes = [
   }, 
   {
     path: 'order', component: OrderPageComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'catalog/:id', component: ProductPageComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'user', component: PersonalAreaComponent, canActivate: [AuthGuard]
   }
 ];
 
@@ -88,7 +100,12 @@ const appRoutes: Routes = [
     ProductCardBasketPageComponent,
     ModalAddProductComponent,
     LoaderComponent,
-    OrderPageComponent
+    OrderPageComponent,
+    ProductPageComponent,
+    RatingComponent,
+    PersonalAreaComponent,
+    UserCardComponent,
+    UserRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +120,8 @@ const appRoutes: Routes = [
     FormsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule, 
+    MatTabsModule
   ],
   providers: [
     {

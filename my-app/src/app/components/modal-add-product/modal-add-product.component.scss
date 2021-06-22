@@ -29,6 +29,11 @@
     margin: 3vw auto;
     &-header {
         text-align: center;
+        background-color: #00a0ff;
+        span {
+            font-size: 30px;
+            color: #fff;
+        }
     }
     &-body {
         margin-top: 30px;

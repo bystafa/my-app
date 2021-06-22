@@ -4,6 +4,10 @@
     padding: 0 23vw;
     &-icon {
         cursor: pointer;
+        span {
+            font-size: 30px;
+            color: #fff;
+        }
         img {
             width: 70px;
             height: 70px;

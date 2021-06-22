@@ -1,16 +1,19 @@
 .order-page {
-    padding: 3vw 23vw;
+    margin-top: 20px;
     &-body {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         &-number {
             span {
-                font-size: 24px;
-                font-weight: 650;
+                font-size: 22px;
+                strong {
+                    font-weight: 600;
+                }
             }
         }
         &-products {
+            width: 600px;
             display: flex;
             flex-direction: row;
             margin-bottom: 10px;
@@ -27,5 +30,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+    &-nothing {
+        margin-top: 40px;
     }
 }

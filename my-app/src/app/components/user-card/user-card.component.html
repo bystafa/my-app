@@ -1,0 +1,26 @@
+<div class="user-card" *ngIf="data">
+    <div class="user-card-img">
+        <img [src]="data.imageSrc" *ngIf="data.imageSrc">
+        <img src="../../../assets/Unknown_person.jpg" *ngIf="!data.imageSrc">
+    </div>
+    <div class="user-card-info">
+        <h3>Контактная информация</h3>
+        <hr>
+        <div class="user-card-info-name" *ngIf="data.name">
+            <div>Имя:</div>
+            <div><strong>{{data.name}}</strong></div>
+        </div>
+        <div class="user-card-info-phone" *ngIf="data.phone">
+            <div>Телефон:</div>
+            <div><strong>{{data.phone}}</strong></div>
+        </div>
+        <div class="user-card-info-mail" *ngIf="data.email">
+            <div>E-mail:</div>
+            <div><strong>{{data.email}}</strong></div>
+        </div>
+        <div class="user-card-info-city" *ngIf="data.city">
+            <div>Город:</div>
+            <div><strong>{{data.city}}</strong></div>
+        </div>
+    </div>
+</div>

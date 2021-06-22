@@ -18,6 +18,11 @@ export class CatalogPageComponent implements OnInit {
   quantity = 0
   title = 'Каталог товаров'
   userType
+  showFilter = false
+  bottomLine = 0
+  topLine = 0
+  name = ''
+  data
 
   constructor(private dialog: MatDialog, private catalogService: CatalogService, private router: Router,private route: ActivatedRoute) { }
 
@@ -29,6 +34,10 @@ export class CatalogPageComponent implements OnInit {
           this.title = params.type
           this.catalogService.getAllByCategory(params.type).subscribe(
             (res: []) => {
+              res.forEach((el: any) => {
+                if (this.topLine < el.price) this.topLine = el.price
+              })
+              this.data = res
               this.transformator(res)
               this.quantity = res.length
             },
@@ -39,6 +48,10 @@ export class CatalogPageComponent implements OnInit {
         } else {
           this.catalogService.getAll().subscribe(
             (res: []) => {
+              res.forEach((el: any) => {
+                if (this.topLine < el.price) this.topLine = el.price
+              })
+              this.data = res
               this.transformator(res)
               this.quantity = res.length
             },
@@ -62,5 +75,14 @@ export class CatalogPageComponent implements OnInit {
     this.dialog.open(ModalAddProductComponent, {
       width: '900px'
     })
+  }
+
+  openFilter() {
+    this.showFilter = !this.showFilter
+  }
+
+  filter() {
+    let arr = this.data.filter(el => el.name.indexOf(this.name) != -1  && el.price <= this.topLine && el.price >= this.bottomLine)
+    this.transformator(arr)
   }
 }

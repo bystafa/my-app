@@ -8,5 +8,6 @@ router.patch('/delete', passport.authenticate('jwt',{session: false}), controlle
 router.get('/', passport.authenticate('jwt',{session: false}), controller.getInfo)
 router.get('/deleteAll', passport.authenticate('jwt',{session: false}), controller.deleteAll)
 router.patch('/like', passport.authenticate('jwt',{session: false}), controller.like)
+router.post('/changeRating', passport.authenticate('jwt',{session: false}), controller.changeRating)
 
 module.exports = router

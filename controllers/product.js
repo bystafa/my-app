@@ -28,6 +28,16 @@ module.exports.getById = async function(req,res) {
     }
 }
 
+module.exports.getByString = async function(req, res) {
+    try {
+        let regex = new RegExp(req.body.string);
+        const products = await Product.find({name: regex})
+        res.status(200).json(products) 
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}
+
 module.exports.create = async function(req,res) {
     const maxId = await Product.findOne().sort({id: -1})
     const product = new Product({
@@ -57,7 +67,7 @@ module.exports.change = async function(req,res) {
     if (req.file) updated.imageSrc = req.file.path
     try {
         const product = await Product.findOneAndUpdate(
-            {_id: req.params.id},
+            {id: req.params.id},
             {$set: updated},
             {new: true}
         )
@@ -69,10 +79,27 @@ module.exports.change = async function(req,res) {
 
 module.exports.delete = async function(req,res) {
     try {
-        await Product.remove({_id: req.params.id})
+        await Product.remove({id: req.params.id})
         res.status(200).json({
             message: 'Товар удален.'
         })
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}
+
+module.exports.changeRating = async function(req, res) {
+    try {
+        let product = await Product.find({id: req.params.id})
+        product[0].rating = {
+            rating: (+req.body.rating + product[0].rating.rating * product[0].rating.quantity) / (product[0].rating.quantity + 1),
+            quantity: ++product[0].rating.quantity
+        }
+        console.log(product)
+        const result = await Product.updateOne({id: req.params.id},
+            {$set: product[0]},
+            {new: true})
+        res.status(200).json(result)
     } catch (e) {
         errorHandler(res, e)
     }

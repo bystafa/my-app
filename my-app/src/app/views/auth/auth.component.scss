@@ -3,6 +3,11 @@
     margin: 6vw auto;
     &-header {
         text-align: center;
+        background-color: rgba(0,160,255, 1);
+        span {
+            font-size: 40px;
+            color: #fff;
+        }
     }
     &-body {
         margin-top: 30px;

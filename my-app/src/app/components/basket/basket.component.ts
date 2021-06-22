@@ -43,7 +43,8 @@ export class BasketComponent implements OnInit {
     (error) => {
       if (error.status === 401) {
         const modalRef = this.modalService.open(ModalComponent, { centered: true });
-        modalRef.componentInstance.text = 'Время действия авторизации закончилось. Авторизуйтесь, пожалуйста, заново';
+        if (localStorage.getItem('jwt')) modalRef.componentInstance.text = 'Время действия авторизации закончилось. Авторизуйтесь, пожалуйста, заново';
+        else modalRef.componentInstance.text = 'Авторизуйтесь, пожалуйста';
         modalRef.componentInstance.type = 'NEGATIVE';
         setTimeout(() => {
           modalRef.close()

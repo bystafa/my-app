@@ -27,11 +27,12 @@ export class OrderPageComponent implements OnInit {
         this.data.forEach((item, index) => {
           item.products.forEach((elem, i) => {
             this.catalogService.getById(elem.id).subscribe((data: any) => {
-              data.quantity = this.data[index].products[i].quantity
-              this.data[index].products[i] = data
+              if (data) {
+                data.quantity = this.data[index].products[i].quantity
+                this.data[index].products[i] = data
+              }
               if ((i + 1) === item.products.length && (index + 1) === this.data.length) {
                 this.loader = false
-                console.log(this.data)
               }
             },
             (error) => console.log(error))

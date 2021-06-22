@@ -1,0 +1,21 @@
+.user-rating {
+    &-card {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        &-info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            &-img {
+                margin-right: 20px;
+                img {
+                    height: 100px;
+                    width: 100px;
+                }
+            }
+        }
+    }
+}

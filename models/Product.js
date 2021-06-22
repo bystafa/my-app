@@ -25,6 +25,13 @@ const productSchema = new Schema({
     category: {
         type: String,
         required: true
+    },
+    description: {
+        type: String
+    },
+    rating: {
+        rating: Number,
+        quantity: Number
     }
 })
 

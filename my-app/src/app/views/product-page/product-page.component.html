@@ -1,0 +1,58 @@
+<div class="product-page" *ngIf="data && !loader">
+    <div class="product-page-header">
+        <h2>{{data.name}}</h2>
+        <div class="product-page-header-rating">
+            <span>{{message}}:</span>
+            <app-rating [(rating)]="rating" (click)="changeRating()"></app-rating>
+        </div>
+    </div>
+    <hr>
+    <div class="product-page-body">
+        <div class="product-page-body-img">
+            <img [src]="data.imageSrc">
+        </div>
+        <div class="product-page-body-info">
+            <div class="product-page-body-info-description" *ngIf="data.description">
+                Описание: <p>{{data.description}}</p>
+            </div>
+            <span>Категория:</span> <p>{{data.category}}</p>
+            <span>Цена:</span> <p>{{data.price}} &#8381;</p>
+            <div class="product-page-body-info-buy">
+                <div class="product-page-body-info-buy-like" (click)="like()">
+                    <img src="../../../assets/heart.png" *ngIf="!liked">
+                    <img src="../../../assets/like.png" *ngIf="liked">
+                </div>
+                <div class="product-page-body-info-buy-quantity">
+                    <img src="../../../assets/plus.png" (click)="quantity = (quantity < data.quantity) ? quantity + 1 :  quantity">
+                    <span>{{quantity}}</span>
+                    <img src="../../../assets/minus.png" (click)="quantity = (quantity > 1) ? quantity - 1 :  1">
+                </div>
+                <div class="product-page-body-info-buy-button">
+                    <button (click)="gotoBasket()">
+                        <span *ngIf="!bought">Купить</span>
+                        <span *ngIf="bought">В корзине</span>
+                        <img src="../../../assets/shopping-cart.png">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="product-page-footer">
+        <textarea rows="4" placeholder="Введите Ваш комментарий"></textarea>
+        <div class="product-page-footer-comment">
+            <button>
+                <span>Отправить</span>
+                <img src="../../../assets/telegram.png">
+            </button>
+        </div> 
+        <div class="product-page-footer-body">
+            <div class="product-page-footer-body-card">
+                <div><img src="../../../assets/WC7yY_Eq_78.jpg"></div>
+                <div class="product-page-footer-body-card-info">
+                    <div class="product-page-footer-body-card-info-name">Евгений</div>
+                    <p>Крутой товар, всем советую!</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

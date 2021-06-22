@@ -1,0 +1,13 @@
+.personal-area-page {
+    margin: 3vw 23vw;
+    &-group {
+        color: #000;
+    }
+}
+::ng-deep .mat-ink-bar {
+    background-color: #00a0ff !important;
+}
+
+::ng-deep .mat-tab-label {
+    color: #000;
+}

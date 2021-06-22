@@ -1,0 +1,128 @@
+.product-page {
+    margin: 3vw 23vw;
+    &-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        &-rating {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            span {
+                margin-right: 15px;
+            }
+        }
+    }
+    &-body {
+        display: flex;
+        flex-direction: row;
+        &-img {
+            img {
+                height: 400px;
+                width: 300px;
+            }
+        }
+        &-info {
+            width: 100%;
+            margin-left: 50px;
+            &-description {
+                text-align: justify; 
+                span {
+                    color: #aaa;
+                }
+            }
+            &-buy {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                img {
+                    cursor: pointer;
+                }
+                &-quantity {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 20px;
+                    img {
+                        margin: 7px;
+                        cursor: pointer;
+                    }
+                    span {
+                        font-size: 20px;
+                    }
+                }
+                &-button {
+                    button {
+                        border: 0;
+                        outline: none;
+                        padding: 10px 25px;
+                        border: 1px;
+                        background-color: #00a0ff;
+                        border-radius: 5px;
+                        img {
+                            height: 25px;
+                            width: 25px;
+                            margin-left: 15px;
+                        }
+                        span {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-footer {
+        margin-top: 50px;
+        textarea {
+            width: 100%;
+            resize: none;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        &-comment {
+            display: flex;
+            justify-content: flex-end;
+            button {
+                border: 0;
+                outline: none;
+                padding: 10px 25px;
+                border: 1px;
+                background-color: #00a0ff;
+                border-radius: 5px;
+                img {
+                    height: 25px;
+                    width: 25px;
+                    margin-left: 15px;
+                }
+                span {
+                    color: #fff;
+                }
+            }
+        }
+        &-body {
+            width: 90%;
+            margin: 0 auto;
+            &-card {
+                box-shadow: 0 0 10px rgba(0,160,255,0.1);
+                border-radius: 46px 0 0 46px;
+                margin-top: 40px;
+                display: flex;
+                flex-direction: row;
+                &-info {
+                    margin-left: 20px;
+                    &-name {
+                        color: #aaa;
+                    }
+                }
+                img {
+                    height: 92px;
+                    width: 92px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
